@@ -31,6 +31,10 @@ async def ask_for_audio_query(message: types.Message):
     user_requests[message.from_user.id] = "awaiting_query_mp3"
     await message.reply("Какой аудиофайл вы хотите получить? Напишите запрос.")
 
+@dp.message_handler(commands=['github'])
+async def github_command(message: types.Message):
+    await message.reply("https://github.com/IlyaFurgal/laba_oop", reply_markup=keyboard)
+
 
 @dp.message_handler()
 async def handle_query(message: types.Message):
